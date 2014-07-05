@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @rule_id = rand(1...10)
     @rule = Rule.find_by(id: @rule_id)
+    @rules = Rule.order(:name)
   end
 
   # GET /posts/1/edit
