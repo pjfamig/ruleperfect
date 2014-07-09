@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" style="<%= @status %>"><%= notice %></p>
 
 
 
@@ -9,7 +9,7 @@
 
 <p>
   <strong>Your response:</strong>
-  <%= @post.content %>
+  <%= @post.content.split(" ") %>
 </p>
 
 

@@ -17,13 +17,19 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @rule_id = rand(1...10)
+    @rule_id = rand(1...20)
     @rule = Rule.find_by(id: @rule_id)
     @rules = Rule.order(:name)
   end
 
   # GET /posts/1/edit
   def edit
+  end
+
+  def perfect(z) 
+    if z.empty?
+      @pefect = true
+    end
   end
 
   # POST /posts
@@ -36,14 +42,17 @@ class PostsController < ApplicationController
       if @post.save
         @rule = Rule.find_by(id: @post.rule_id)
         @statement = @rule.statement
-        @keywords = @rule.keywords.split(', ')
+        @keywords = @rule.keywords.split(' ')
+        
+        a = @rule.keywords.split(' ')
+        b = @post.content
+        c = b.split(" ")
+        z = a - c
                 
-        if @post.content =~ /#{@keywords.join("|")}/
-          @correct = true
+        if z.empty?
           format.html { redirect_to new_post_path, notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else
-          @correct = false
           format.html { redirect_to @post, notice: 'WRONG. Keywords required: ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         end

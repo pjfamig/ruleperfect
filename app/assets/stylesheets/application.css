@@ -16,3 +16,11 @@
 #content {
 	width: 600px;
 }
+
+#rule {
+	margin-left: 50px;
+}
+
+.wrong {
+	color: red;
+}

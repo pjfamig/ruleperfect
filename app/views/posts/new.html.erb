@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" style="<%= @status %>"><%= notice %></p>
 
 
+<p id="rule" align="left"><strong><%= @rule.name.titleize %></strong></p>
 
 <%= render 'form' %>
 

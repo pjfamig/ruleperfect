@@ -16,7 +16,7 @@
 	<%= f.hidden_field :rule_id, value: @rule_id %>
   </div>
   <div class="field">
-    <%= f.text_area :content, :cols => 70, :rows => 16, autofocus: true, :value => @rule.name.titleize + ' - '  %>
+    <%= f.text_area :content, :cols => 70, :rows => 16, autofocus: true, :onKeyDown => "pressed(event)"  %>
   </div>
   <div class="actions">
     <%= f.submit "Submit!" %>
