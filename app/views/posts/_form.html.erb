@@ -12,15 +12,13 @@
   <% end %>
 
 
-<%= f.collection_select :rule_id, @rules, :id, :topic %>
-
   <div class="field">
 	<%= f.hidden_field :rule_id, value: @rule_id %>
   </div>
   <div class="field">
-    <%= f.text_area :content, :cols => 70, :rows => 10, autofocus: true, :value => @rule.name.titleize + ' - '  %>
+    <%= f.text_area :content, :cols => 70, :rows => 16, autofocus: true, :value => @rule.name.titleize + ' - '  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit!" %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704185709) do
+ActiveRecord::Schema.define(version: 20140707221457) do
 
   create_table "posts", force: true do |t|
     t.string   "content"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140704185709) do
     t.datetime "updated_at"
     t.string   "keywords"
     t.string   "topic"
+    t.boolean  "correct"
   end
 
 end

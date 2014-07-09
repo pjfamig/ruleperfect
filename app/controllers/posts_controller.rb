@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @rule = Rule.find_by(id: @post.rule_id)
+    @statement = @rule.statement
   end
 
   # GET /posts/new
@@ -37,10 +39,12 @@ class PostsController < ApplicationController
         @keywords = @rule.keywords.split(', ')
                 
         if @post.content =~ /#{@keywords.join("|")}/
-          format.html { redirect_to @post, notice: 'Correct statement of ' + @rule.name + ' using valid keywords: ' + @keywords.to_s }
+          @correct = true
+          format.html { redirect_to new_post_path, notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else
-          format.html { redirect_to @post, notice: 'Incorrect rule statement. Keywords required: ' + @keywords.to_s }
+          @correct = false
+          format.html { redirect_to @post, notice: 'WRONG. Keywords required: ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         end
       else
