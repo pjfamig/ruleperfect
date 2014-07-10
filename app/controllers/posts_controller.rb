@@ -44,8 +44,8 @@ class PostsController < ApplicationController
         @statement = @rule.statement
         @keywords = @rule.keywords.split(' ')
         
-        a = @rule.keywords.split(' ')
-        b = @post.content
+        a = @rule.keywords.gsub(",", "").split(' ')
+        b = @post.content.gsub(",", "")
         c = b.split(" ")
         z = a - c
                 
