@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @rule_id = rand(1...20)
+    @rule_id = rand(1...106)
     @rule = Rule.find_by(id: @rule_id)
     @rules = Rule.order(:name)
   end
@@ -42,10 +42,10 @@ class PostsController < ApplicationController
       if @post.save
         @rule = Rule.find_by(id: @post.rule_id)
         @statement = @rule.statement
-        @keywords = @rule.keywords.split(' ')
+        @keywords = @rule.keywords.gsub(",", "").split(' ')
         
         a = @rule.keywords.gsub(",", "").split(' ')
-        b = @post.content.gsub(",", "")
+        b = @post.content.downcase.gsub(",", "")
         c = b.split(" ")
         z = a - c
                 

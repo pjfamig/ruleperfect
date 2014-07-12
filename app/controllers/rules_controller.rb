@@ -6,6 +6,10 @@ class RulesController < ApplicationController
   def index
     @rules = Rule.all
   end
+  
+  def evidence 
+    @rules = Rule.where("topic = ?", "evidence")    
+  end
 
   # GET /rules/1
   # GET /rules/1.json

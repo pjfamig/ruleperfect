@@ -11,13 +11,14 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :topic %><br>
-    <%= f.text_field :topic %>
+    <%= f.text_field :topic, :size => 50 %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 50 %>
   </div>
   <div class="field">
     <%= f.label :statement %><br>
@@ -25,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :keywords %><br>
-    <%= f.text_field :keywords, size: 90 %>
+    <%= f.text_area :keywords, :cols => 70, :rows => 5 %>
   </div>
   <div class="actions">
     <%= f.submit %>

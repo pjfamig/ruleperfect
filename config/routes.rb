@@ -8,6 +8,9 @@ Ruleperfect::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'posts#new'
+  get   'contracts' => 'rules#contracts', :as => :contracts_rules
+  get   'evidence' => 'rules#evidence', :as => :evidence_rules
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
