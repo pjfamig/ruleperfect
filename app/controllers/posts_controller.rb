@@ -48,6 +48,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         @rule = Rule.find_by(id: @post.rule_id)
+        @topic = @rule.topic
         @statement = @rule.statement
         @keywords = @rule.keywords.gsub(",", "").split(' ')
         
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
         z = a - c
                 
         if z.empty?
-          format.html { redirect_to new_post_path, notice: 'CORRECT! ' + @keywords.to_s }
+          format.html { redirect_to new_post_path(:topic => @topic), notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else
           format.html { redirect_to @post, notice: 'WRONG. Keywords required: ' + @keywords.to_s }
