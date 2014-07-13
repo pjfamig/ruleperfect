@@ -17,7 +17,14 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @rule_id = rand(1...106)
+    
+    if params[:topic]
+      @rule = Rule.where(:topic => params[:topic]).order("Random()").first
+      @rule_id = @rule.id
+    else
+      @rule_id = rand(1...106)  
+    end
+    
     @rule = Rule.find_by(id: @rule_id)
     @rules = Rule.order(:name)
   end
@@ -91,6 +98,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      #@topic = Post.find(params[:topic])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
