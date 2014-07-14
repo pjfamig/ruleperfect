@@ -11,6 +11,17 @@ class RulesController < ApplicationController
     @rules = Rule.where("topic = ?", "evidence")    
   end
 
+  
+  def torts 
+    @rules = Rule.where("topic = ?", "torts")    
+  end
+  
+  
+  def contracts 
+    @rules = Rule.where("topic = ?", "contracts")    
+  end
+  
+  
   # GET /rules/1
   # GET /rules/1.json
   def show

@@ -1,16 +1,18 @@
 <p id="notice" style="<%= @status %>"><%= notice %></p>
 
-
-
-<p>
-  <strong><%= @statement %>
-  </strong>
+<ul>
+  <% if @keywords %>
+	<% @keywords.each do |keyword| %>
+		<li><strong><%= keyword %></strong></li>
+	<% end %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Your response:</strong>
-  <%= @post.content.split(" ") %>
+  <%= @statement %>
+  
 </p>
+
 
 
 <%= link_to 'Back', new_post_path %>

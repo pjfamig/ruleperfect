@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def show
     @rule = Rule.find_by(id: @post.rule_id)
     @statement = @rule.statement
+    @keywords = @rule.keywords.split(', ')
   end
 
   # GET /posts/new
@@ -61,7 +62,7 @@ class PostsController < ApplicationController
           format.html { redirect_to new_post_path(:topic => @topic), notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else
-          format.html { redirect_to @post, notice: 'WRONG. Keywords required: ' + @keywords.to_s }
+          format.html { redirect_to @post, notice: 'INCORRECT! Keywords required:' }
           format.json { render action: 'show', status: :created, location: @post }
         end
       else
