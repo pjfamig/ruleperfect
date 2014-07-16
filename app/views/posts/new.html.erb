@@ -1,6 +1,9 @@
 <%= link_to_unless_current('Contracts', new_post_path(:topic => "contracts")) %>
 <%= link_to_unless_current('Evidence', new_post_path(:topic => "evidence")) %>
 <%= link_to_unless_current('Torts', new_post_path(:topic => "torts")) %>
+<%= link_to_unless_current('Property', new_post_path(:topic => "property")) %>
+<%= link_to_unless_current('Community Property', new_post_path(:topic => "community property")) %>
+
 
 <p id="notice" style="<%= @status %>"><%= notice %></p>
 	

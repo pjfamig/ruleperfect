@@ -1,9 +1,9 @@
 <p id="notice" style="<%= @status %>"><%= notice %></p>
 
-<ul>
+
   <% if @keywords %>
 	<% @keywords.each do |keyword| %>
-		<li><strong><%= keyword %></strong></li>
+		<strong><%= keyword %><br></strong>
 	<% end %>
   <% end %>
 </p>

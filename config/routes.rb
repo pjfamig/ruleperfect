@@ -11,6 +11,7 @@ Ruleperfect::Application.routes.draw do
   get   'contracts' => 'rules#contracts', :as => :contracts_rules
   get   'evidence' => 'rules#evidence', :as => :evidence_rules
   get   'torts' => 'rules#torts', :as => :torts_rules
+  get   'property' => 'rules#property', :as => :property_rules
   get   'posts/new/:topic',to: 'posts#new', as: :topic
   
 

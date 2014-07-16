@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       @rule = Rule.where(:topic => params[:topic]).order("Random()").first
       @rule_id = @rule.id
     else
-      @rule_id = rand(1...106)  
+      @rule_id = rand(1...191)  
     end
     
     @rule = Rule.find_by(id: @rule_id)
