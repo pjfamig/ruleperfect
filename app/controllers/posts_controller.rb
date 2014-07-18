@@ -54,14 +54,16 @@ class PostsController < ApplicationController
         @keywords = @rule.keywords.gsub(",", "").split(' ')
         
         a = @rule.keywords.gsub(",", "").split(' ')
-        b = @post.content.downcase.gsub(",", "")
+        b = @post.content.gsub(",", "").gsub(".", "")
         c = b.split(" ")
         z = a - c
                 
         if z.empty?
+          @status = true
           format.html { redirect_to new_post_path(:topic => @topic), notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else
+          @status = false
           format.html { redirect_to @post, notice: 'INCORRECT! Keywords required:' }
           format.json { render action: 'show', status: :created, location: @post }
         end

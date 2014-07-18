@@ -1,5 +1,9 @@
-<p id="notice" style="<%= @status %>"><%= notice %></p>
 
+<% if !@status %>
+	<p class="wrong">INCORRECT! Keywords required:</p>
+	<% elsif @status %>
+	<p id="notice">Correct!</p>
+<% end %>
 
   <% if @keywords %>
 	<% @keywords.each do |keyword| %>
