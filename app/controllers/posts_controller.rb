@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = Post.new
     
     if params[:topic]
-      @rule = Rule.where(:topic => params[:topic]).order("Random()").first
+      @rule = Rule.where(:topic => params[:topic], :correct => nil).order("Random()").first
       @rule_id = @rule.id
     else
       @rule_id = rand(1...191)  
@@ -60,6 +60,8 @@ class PostsController < ApplicationController
                 
         if z.empty?
           @status = true
+          @rule = Rule.find_by(id: @post.rule_id)
+          @rule.toggle!(:correct)
           format.html { redirect_to new_post_path(:topic => @topic), notice: 'CORRECT! ' + @keywords.to_s }
           format.json { render action: 'show', status: :created, location: @post }
         else

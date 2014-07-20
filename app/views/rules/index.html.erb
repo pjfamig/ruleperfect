@@ -4,15 +4,19 @@
 <%= link_to 'New Rule', new_rule_path %>
 <br><br>
 
-<%= link_to_unless_current 'All', rules_path %>
+<%= link_to 'All', rules_path %> |
 
-<%= link_to_unless_current('Contracts', contracts_rules_path) %>
-
-<%= link_to_unless_current('Evidence', evidence_rules_path) %>
-
-
-<%= link_to_unless_current('Torts', torts_rules_path) %>
-<%= link_to_unless_current('Property', property_rules_path) %>
+<%= link_to_unless_current('Contracts', rules_path(:subject => "contracts")) %> | 
+<%= link_to_unless_current('Evidence', rules_path(:subject => "evidence")) %> | 
+<%= link_to_unless_current('Torts', rules_path(:subject => "torts")) %> | 
+<%= link_to_unless_current('Property', rules_path(:subject => "property")) %> | 
+<%= link_to_unless_current('Community Property', rules_path(:subject => "community property")) %> | 
+<%= link_to_unless_current('Crim & CrimPro', rules_path(:subject => "crim")) %> <br>
+<%= link_to_unless_current('Wills & Trusts', rules_path(:subject => "wills")) %> | 
+<%= link_to_unless_current('CivPro', rules_path(:subject => "civpro")) %> | 
+<%= link_to_unless_current('Business Associations', rules_path(:subject => "business")) %> | 
+<%= link_to_unless_current('PR', rules_path(:subject => "pr")) %> | 
+<%= link_to_unless_current('ConLaw', rules_path(:subject => "conlaw")) %> 
 
 <br>
 <br>

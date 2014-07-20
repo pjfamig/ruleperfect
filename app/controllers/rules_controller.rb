@@ -4,7 +4,11 @@ class RulesController < ApplicationController
   # GET /rules
   # GET /rules.json
   def index
-    @rules = Rule.all
+    if params[:subject]
+      @rules = Rule.where(:topic => params[:subject])
+    else
+      @rules = Rule.all
+    end
   end
   
   def evidence 

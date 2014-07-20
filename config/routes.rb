@@ -13,6 +13,7 @@ Ruleperfect::Application.routes.draw do
   get   'torts' => 'rules#torts', :as => :torts_rules
   get   'property' => 'rules#property', :as => :property_rules
   get   'posts/new/:topic',to: 'posts#new', as: :topic
+  get   'rules/:subject',to: 'rules#index', as: :subject
   
 
   # Example of regular route:
