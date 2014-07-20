@@ -23,6 +23,7 @@ class RulesController < ApplicationController
     @rules = Rule.where("topic = ?", "property")    
   end
   
+  
   # GET /rules/1
   # GET /rules/1.json
   def show

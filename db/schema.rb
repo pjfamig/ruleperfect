@@ -11,14 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707221457) do
+ActiveRecord::Schema.define(version: 20140718153447) do
 
-  create_table "posts", force: true do |t|
-    t.string   "content"
-    t.integer  "rule_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "posts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "rules", force: true do |t|
     t.string   "name"
