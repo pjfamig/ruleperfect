@@ -18,10 +18,26 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+
+    @contracts_remaining = Rule.where(:topic => "contracts", :correct => nil).count.to_s
+    @evidence_remaining = Rule.where(:topic => "evidence", :correct => nil).count.to_s
+    @torts_remaining = Rule.where(:topic => "torts", :correct => nil).count.to_s
+    @property_remaining = Rule.where(:topic => "property", :correct => nil).count.to_s
+    @community_remaining = Rule.where(:topic => "community property", :correct => nil).count.to_s
+    @crim_remaining = Rule.where(:topic => "crim", :correct => nil).count.to_s
+    @wills_remaining = Rule.where(:topic => "wills", :correct => nil).count.to_s
+    @civpro_remaining = Rule.where(:topic => "civpro", :correct => nil).count.to_s
+    @business_remaining = Rule.where(:topic => "business", :correct => nil).count.to_s
+    @pr_remaining = Rule.where(:topic => "pr", :correct => nil).count.to_s
+    @conlaw_remaining = Rule.where(:topic => "conlaw", :correct => nil).count.to_s
+
     
     if params[:topic]
       @rule = Rule.where(:topic => params[:topic], :correct => nil).order("Random()").first
-      @rule_id = @rule.id
+      if @rule 
+        @rule_id = @rule.id
+      end
+      @remaining = Rule.where(:topic => params[:topic], :correct => nil).count.to_s
     else
       @rule_id = rand(1...191)  
     end

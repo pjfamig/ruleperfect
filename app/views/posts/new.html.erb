@@ -1,20 +1,22 @@
-<%= link_to_unless_current('Contracts', new_post_path(:topic => "contracts")) %> | 
-<%= link_to_unless_current('Evidence', new_post_path(:topic => "evidence")) %> | 
-<%= link_to_unless_current('Torts', new_post_path(:topic => "torts")) %> | 
-<%= link_to_unless_current('Property', new_post_path(:topic => "property")) %> | 
-<%= link_to_unless_current('Community Property', new_post_path(:topic => "community property")) %> | 
-<%= link_to_unless_current('Crim & CrimPro', new_post_path(:topic => "crim")) %> <br>
-<%= link_to_unless_current('Wills & Trusts', new_post_path(:topic => "wills")) %> |
+<%= link_to_unless_current('Contracts (' + @contracts_remaining +')', new_post_path(:topic => "contracts")) %> | 
+<%= link_to_unless_current('Evidence (' + @evidence_remaining +')', new_post_path(:topic => "evidence")) %> | 
+<%= link_to_unless_current('Torts (' + @torts_remaining +')', new_post_path(:topic => "torts")) %> | 
+<%= link_to_unless_current('Property (' + @property_remaining +')', new_post_path(:topic => "property")) %> | 
+<%= link_to_unless_current('Community Property (' + @community_remaining +')', new_post_path(:topic => "community property")) %> | 
+<%= link_to_unless_current('Crim & CrimPro (' + @crim_remaining +')', new_post_path(:topic => "crim")) %> 
+<%= link_to_unless_current('Wills & Trusts (' + @wills_remaining +')', new_post_path(:topic => "wills")) %> |
 
-<%= link_to_unless_current('CivPro', new_post_path(:topic => "civpro")) %> | 
-<%= link_to_unless_current('Business Associations', new_post_path(:topic => "business")) %> | 
-<%= link_to_unless_current('PR', new_post_path(:topic => "pr")) %> | 
-<%= link_to_unless_current('ConLaw', new_post_path(:topic => "conlaw")) %> 
+<%= link_to_unless_current('CivPro (' + @civpro_remaining +')', new_post_path(:topic => "civpro")) %> | 
+<%= link_to_unless_current('Business Associations (' + @business_remaining +')', new_post_path(:topic => "business")) %> | 
+<%= link_to_unless_current('PR (' + @pr_remaining +')', new_post_path(:topic => "pr")) %> | 
+<%= link_to_unless_current('ConLaw (' + @conlaw_remaining +')', new_post_path(:topic => "conlaw")) %> 
 
 
 <p id="notice" style="<%= @status %>"><%= notice %></p>
 
-<p id="rule" align="left"><strong><%= @rule.name %></strong></p>
+<p><%= @remaining %> remaining</p>
+
+<p id="rule" align="left"><strong><% if @rule %><%= @rule.name %><% end %></strong></p>
 
 <%= render 'form' %>
 
