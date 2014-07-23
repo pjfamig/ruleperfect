@@ -45,6 +45,7 @@ class PostsController < ApplicationController
     @rule = Rule.find_by(id: @rule_id)
     @rules = Rule.order(:name)
   end
+  
 
   # GET /posts/1/edit
   def edit
