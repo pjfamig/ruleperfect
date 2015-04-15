@@ -17,6 +17,11 @@
 	width: 600px;
 }
 
+#header {
+	width: 800px;
+	margin: 0 auto;
+}
+
 #rule {
 	margin-left: 50px;
 }

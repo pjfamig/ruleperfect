@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       end
       @remaining = Rule.where(:topic => params[:topic], :correct => nil).count.to_s
     else
-      @rule_id = rand(1...191)  
+      @rule_id = rand(1...488)  
     end
     
     @rule = Rule.find_by(id: @rule_id)
