@@ -7,20 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<br>
 
-<div id="header">
-	</div>
+<div class="container">
+  <div class="header">
+	[logo][login]
+  </div>
 
-<center>
-
-
-<div id="content">
-<%= yield %>
-</div>
-
-
-</center>
+  <center>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </center>
 
 <script>
 function pressed(e) {
@@ -29,5 +26,8 @@ function pressed(e) {
     }
 }
 </script>
+
+</div>
+
 </body>
 </html>

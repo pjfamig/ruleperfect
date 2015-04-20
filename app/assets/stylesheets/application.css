@@ -13,11 +13,17 @@
  */
 
 
+.container {
+	width: 800px;
+	margin: 0 auto;
+	
+}
+
 #content {
 	width: 600px;
 }
 
-#header {
+.header {
 	width: 800px;
 	margin: 0 auto;
 }
